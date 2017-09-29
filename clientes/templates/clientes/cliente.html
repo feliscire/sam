@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section %}
+
+<h1>Listado de Cliente</h1>
+
+{% endblock section %}
+
+{% block maincontent %}
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td class="td">Nro de Cliente</td>
+			<td class="td">Nombre</td>
+			<td class="td">Acciones</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if objects_list %}
+		{% for cliente in objects_list %}
+		<tr>
+			<td>{{ cliente.idcliente }}</td>
+			<td>{{ cliente.nombre }}</td>
+			<td><a class="btn btn-secondary" href="{% url 'cliente-foto2' cliente.idcliente %}">
+                        	<img src="{% static "iconos/lupa.png" %}" style="width:20px;height:20px" alt="Ver la Imagen" /></a>
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de clientes!!</h1>
+		
+		{% endif %}
+	</tbody>
+</table>
+{% endblock maincontent %}
+
+{% block footer %}
+<h1>F o o t e r</h1>
+{% endblock footer %}

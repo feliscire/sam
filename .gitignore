@@ -1,0 +1,8 @@
+*.txt
+*.pyc
+*.idea
+*.jpg
+*.pdf
+db.sqlit3
+manage.sublime-workspace
+Almacen

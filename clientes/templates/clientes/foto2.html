@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section %}
+<h1>Listado de Clientes y Fotos</h1>
+
+<h2>Codigo de Cliente: {{ objects.idcliente }} Nombre : {{ objects.nombre }}</h2> 
+<hr>
+{% endblock section %}
+{% block maincontent %}
+<div>
+    <table border="1px">
+        <tr>
+            {% for p in objects.photo_set.all %}
+                <td>
+                    <div>{{ p.title }}</div>
+                    <div>
+                        <a href="{% url 'base' %}">
+                        	<img src="{% static p.photo.url %}" style="width:200px;height:200px" alt="My image"/>
+                        </a>
+                    </div>
+                </td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+{% endblock maincontent %}
+
+{% block footer %}
+<h1>F o o t e r</h1>
+{% endblock footer %}

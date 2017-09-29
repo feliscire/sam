@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+<h1 class="h1">Listado de Cliente</h1> 
+<div class="buscar">
+
+</div>
+{% endblock %}
+
+{% block maincontent %}
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td class="td"><b>Nro de Cliente</b></td>
+			<td class="td"><b>Nombre</b></td>
+			<td class="td"><b>Apellido</b></td>
+			<td class="td"><b>Fecha de Nacimiento</b></td>
+			<td class="td"><b>Direccion</b></td>
+			<td class="td"><b>Estado</b></td>
+			<td class="td"><b>Peso</b></td>
+			<td class="td"><b>Acciones</b></td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for cliente in object_list %}
+		<tr>
+			<td>{{ cliente.idcliente }}</td>
+			<td>{{ cliente.nombre }}</td>
+			<td>{{ cliente.apellido }}</td>
+			<td>{{ cliente.fecha_nacimiento }}</td>
+			<td>{{ cliente.direccion }}</td>
+			<td>{{ cliente.estado }}</td>
+			<td>{{ cliente.kg }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'cliente_editar' cliente.idcliente %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'cliente_eliminar' cliente.idcliente %}">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de clientes!!</h1>
+		
+		{% endif %}
+	</tbody>
+</table>
+{% endblock maincontent %}
+
+{% block footer %}
+<h1>F o o t e r</h1>
+{% endblock footer %}

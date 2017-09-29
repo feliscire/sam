@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+<h1>Envio de Correo Electronico</h1>
+<br /><br />
+{% endblock %}
+
+{% block maincontent %}
+
+<form id="formulario" method = "post">{% csrf_token %}
+	{{ formulario.as_p }}
+	<input class="btn btn-primary" type = "submit" value = "Enviar" />
+	<a class="btn btn-secondary" href="{% url 'cliente_listar' %}">Cancelar</a>
+</form>
+{% endblock maincontent %}
+
+{% block footer %}
+<h1>F o o t e r</h1>
+{% endblock footer %}

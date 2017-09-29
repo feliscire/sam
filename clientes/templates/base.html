@@ -1,0 +1,71 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head lang="es">
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+
+<body>
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+    <button class="btn btn-danger navbar-btn">Button</button>
+  </div>
+</nav> 
+
+<div class="container">
+
+<div class="header"><a ref="#"><img src="" alt="Insertar logo" name="Insertar_logo" width="180" height="90" id="Insert_logo" style="background-color: #9F6D40; display:block;" /></a>
+    <h1>Clientes: </h1>
+    <ul class="ul">
+        <li>
+            <a href="{% url 'cliente-list' %}">Listado de Clientes</a>
+        </li>
+        <li>
+            <a href="{% url 'cliente_crear' %}">Crear un Cliente</a>
+        </li>
+        <li>
+            <a href="{% url 'contactomail' %}">Enviar un Mail</a>
+       </li>
+       <li>
+            <a href="{% url 'cliente_listar' %}">Listado de Clientes 2</a>
+        </li>
+    </ul>
+
+    <hr>
+<!-- end .header --></div>
+
+    <div class="content">
+        {% block section %}
+        {% endblock section %}
+<!-- end .content --></div>
+
+    <div class="detalle">
+        {% block maincontent %}
+        {% endblock maincontent %}
+<!-- end .detalle --></div>
+    <div class="footer">
+        {% block footer %}
+        {% endblock footer %}
+<!-- end .footer --></div>        
+
+<!-- end .conteiner --></div>
+
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

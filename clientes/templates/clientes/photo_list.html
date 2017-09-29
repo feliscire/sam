@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+<h1>Listado de Clientes con Foto</h1>
+
+{% endblock %}
+
+{% block maincontent %}
+<table class="table table-bordered">
+	<thead>
+		<tr style="background-color: #C6D580;">
+			<td>Nro de ID</td>
+			<td>Titular</td>
+			<td>Titutlo</td>
+			<td>Foto</td>
+			<td>Fecha de Publicaion</td>
+			<td>Favorito</td>
+			<td>Estado</td>
+			<td>Comentario</td>
+			<td>Acciones</td>
+		</tr>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for photo in object_list %}
+		<tr>
+			<td>{{ photo.idfoto }}</td>
+			<td>{{ photo.cliente.nombre }} {{ photo.cliente.apellido }}</td>
+			<td>{{ photo.title }}</td>
+			<td>{{ photo.photo }}</td>
+			<td>{{ photo.pub_date }}</td>
+			<td>{{ photo.favorite }}</td>
+			<td>{{ photo.comment }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'cliente_editar' photo.idfoto %}">Editar</a>
+				<a class="btn btn-danger" href="{% url 'cliente_eliminar' photo.idfoto %}">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+
+		{% else %}
+		<h1>No hay registros de clientes!!</h1>
+		
+		{% endif %}
+	</tbody>
+</table>
+{% endblock maincontent %}
+
+{% block footer %}
+<h1>F o o t e r</h1>
+{% endblock footer %}

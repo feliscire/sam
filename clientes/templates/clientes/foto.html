@@ -1,0 +1,13 @@
+<h1>Listado de Clientes y Fotos</h1>
+
+<h2>Codigo de Cliente: {{ objects.idcliente }} Nombre : {{ objects.nombre }}</h2> 
+
+<hr>
+
+<ul>
+{% for x in objects.photo_set.all %}
+    <li>
+    	<p><b>F o t o : </b>{{ x.title }}</p>
+    </li>
+{% endfor %}
+</ul>

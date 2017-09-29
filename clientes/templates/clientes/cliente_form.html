@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+<h1>Cliente Nuevo</h1>
+
+{% endblock %}
+
+{% block maincontent %}
+<form class="form-group" method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button class="btn btn-primary" type="submit">GUARDAR</button>
+	<a class="btn btn-secondary" href="{% url 'cliente_listar' %}">Cancelar</a>
+</form>
+{% endblock maincontent %}
+
+{% block footer %}
+<h1>F o o t e r</h1>
+{% endblock footer %}

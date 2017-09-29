@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block section %}
+
+<h1>Listado de Fotos</h1>
+
+{% endblock %}
+
+{% block maincontent %}
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	{{ form2.as_p }}
+{% endblock maincontent %}
+
+{% block footer %}
+<h1>F o o t e r</h1>
+{% endblock footer %}
