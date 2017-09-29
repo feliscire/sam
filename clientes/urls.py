@@ -4,6 +4,7 @@ from . import views
 from clientes.views import ClienteList, ClienteCreate, ClienteUpdate, ClienteDelete, PhotoList, PhotoCreate
 
 urlpatterns = [
+    url(r'^admin$', views.cliente_admin, name="cliente_admin"),
     #url(r'^list/nuevo$', views.cliente_view, name='cliente_crear'),
     url(r'^nuevo$', ClienteCreate.as_view(), name='cliente_crear'),
     #url(r'^list/listar$', views.cliente_list, name='cliente_listar'),

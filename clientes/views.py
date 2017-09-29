@@ -124,7 +124,7 @@ class ClienteDelete(DeleteView):
 
 class PhotoList(ListView):
 	model = Photo
-	template_name = 'clientes/photo_list.html'
+	template_name = 'clientes/photo_ver.html'
 
 class PhotoCreate(CreateView):
 	model = Photo
@@ -144,7 +144,7 @@ class PhotoCreate(CreateView):
 	def post(self, request, *args, **kwargs):
 		self.object = self.get_object
 		form = self.form_class(request.POST)
-		form2 = sefl.second_form_class(request.POST)
+		form2 = self.second_form_class(request.POST)
 		if form.is_valid() and form2.is_valid():
 			photo = form.save(commit=False)
 			photo.cliente = form2.save()
@@ -152,3 +152,8 @@ class PhotoCreate(CreateView):
 			return HttpResponseRedirect(self.get_sucess_url())
 		else:
 			return self.render_to_response(self.get_context_data(form=form, form2=form2))
+
+def cliente_admin(request):
+	return HttpResponseRedirect('/admin/')
+
+ 
